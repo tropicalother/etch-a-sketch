@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="askDimensions"></button>
+    <div id="displayContainer"></div>
+</body>
+
+<script>
+    const displayContainer = document.querySelector('div')
+    displayContainer.classList.add('bigGrid')
+
+    const askDimensions = document.querySelector('button')
+    askDimensions.textContent = 'Set grid dimensions'
+
+    askDimensions.addEventListener('click', () =>{
+        let size = prompt('Enter the width+height of your new grid, please.') 
+        if (size < 101)
+            regenerateGrid(size)
+        else
+            {
+                alert('Invalid number, it should be lower than 100.')
+            }
+    })
+
+
+    function drawMe()
+    {
+            addEventListener('mouseover', () =>{
+                if (event.target.classList.contains('gridSquare'))
+        {
+            let computedStyle = window.getComputedStyle(event.target)
+
+            let backgroundColor = computedStyle.backgroundColor.trim();
+            if (backgroundColor === 'rgb(255, 255, 255)') {
+                let random1 = (Math.random()*255)
+                let random2 = (Math.random()*255)
+                let random3 = (Math.random()*255)
+                event.target.style.backgroundColor = 'rgb(' + random1 +', ' + random2 + ', ' + random3 +')';
+            }
+            else
+            {
+                event.target.style.backgroundColor = 'white';
+            }
+        }
+         })
+    }
+
+    let numRows = 4
+    for (let i=0; i<numRows; i++)
+            {
+            let divDown = document.createElement('div');
+            divDown.className = 'gridDown';
+            displayContainer.append(divDown);
+
+            for (let j = 0; j < numRows; j++) {
+                let divTemp = document.createElement('div');
+                divTemp.className = 'gridSquare';
+                divDown.append(divTemp);
+            }
+        }
+        drawMe()
+
+        function regenerateGrid(dimensions)
+        {
+            while (displayContainer.firstChild) {
+    displayContainer.removeChild(displayContainer.firstChild);
+    }
+
+            let customRows = dimensions
+    for (let i=0; i<customRows; i++)
+            {
+            let divDown = document.createElement('div');
+            divDown.className = 'gridDown';
+            displayContainer.append(divDown);
+
+            for (let j = 0; j < customRows; j++) {
+                let divTemp = document.createElement('div');
+                divTemp.className = 'gridSquare';
+                divDown.append(divTemp);
+            }
+        }
+        }
+
+</script>
+</html>
+*/

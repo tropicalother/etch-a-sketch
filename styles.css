@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+  }
+  
+  .bigGrid {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    flex-wrap: wrap;
+  }
+  .gridSquare {
+    background: white;
+    border-color: blue;
+    flex: 1;
+  }
+
+  .gridDown {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+button  {
+
+}
